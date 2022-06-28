@@ -12,6 +12,18 @@ export const appRouter = trpc
       const pokemon = await api.getPokemonById(input.id);
       return {name: pokemon.name, sprites: pokemon.sprites};
     }
+  })
+  .query('hello', {
+    input: z
+      .object({
+        text: z.string().nullish(),
+      })
+      .nullish(),
+    resolve({ input }) {
+      return {
+        greeting: `hello ${input?.text ?? 'world'}`,
+      };
+    },
   });
 
 // export type definition of API
