@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 const getBaseUrl = () => {
-  if (typeof window) return "";
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCELL_URL}`;
+  if (window) return "";
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
 
   return `http://localhost:${process.env.PORT ?? 3000}`;
 };
